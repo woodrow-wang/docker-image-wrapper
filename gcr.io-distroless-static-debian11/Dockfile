@@ -1,10 +1,2 @@
 FROM gcr.io/distroless/static-debian11
 MAINTAINER Woodorow Wang
-WORKDIR /
-ADD --chown=0:0 collectd-aarch64 /usr/local/collectd-aarch64
-ADD --chown=0:0 libhiredis.so.1.1.1-dev /usr/local/lib
-RUN ln -s /usr/local/lib/libhiredis.so.1.1.1-dev /usr/local/lib/libhiredis.so && ldconfig
-EXPOSE 25826/udp
-WORKDIR /
-USER 0
-#ENTRYPOINT ["/usr/local/collectd-aarch64/sbin/collectd","-f"]
